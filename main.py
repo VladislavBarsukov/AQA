@@ -66,6 +66,7 @@ if __name__ == '__main__':
     b2 = Ticket('math', "2-4")
     b3 = Ticket('math', "2+2")
     b4 = Ticket('math', "3+5")
+    b5 = Ticket('math', "3+5")
     ticket_group = TicketGroup(a, b, b2, b3, b4)
     print('---------------------')
     print(ticket_group.get_random_ticket())

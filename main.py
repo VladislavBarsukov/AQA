@@ -14,6 +14,7 @@ if __name__ == '__main__':
     fake = Faker("ru_RU")
 
     teacher_1 = Teacher(fake.name(), 'math')
+    teacher_31 = Teacher(fake.name(), 'math')
     print(teacher_1.teacher_name, teacher_1.teacher_subjects,
           teacher_1.work_hours, teacher_1.payment)
     teacher_1.add_teachers_subject('geometry')
@@ -84,11 +85,11 @@ if __name__ == '__main__':
         print(datetime.datetime.now())
         print(n.end_time)
 
-    n.teacher_set_marks("Mark", "math", 5)
-    n.teacher_set_marks("Mark", "math", 2)
-    n.teacher_set_marks("Ben", "math", 4)
-    n.teacher_set_marks("Ben", "math", 3)
-
+    n.teacher_set_marks("Mark", "math", 3)
+    n.teacher_set_marks("Mark", "math", 3)
+    n.teacher_set_marks("Ben", "math", 5)
+    n.teacher_set_marks("Ben", "math", 5)
+    n.teacher_set_marks("Ben", "math", 5)
     stud_1.show_student_marks()
     stud_2.show_student_marks()
     print(n.student_and_marks)

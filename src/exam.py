@@ -46,5 +46,4 @@ class Exam:
         self.teacher_and_subject.update(self.student_and_marks)
         with open('data.json', 'w') as f:
             json.dump(self.teacher_and_subject, f)
-
         return self.student_and_marks

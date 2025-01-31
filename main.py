@@ -7,7 +7,7 @@ from src.teacher import Teacher
 from src.student_group import StudentGroup
 from src.exam import Exam
 from src.ticket import Ticket
-from src.ticket_group import TicketGroup
+from src.ticket_group import TicketCollection
 
 if __name__ == '__main__':
 
@@ -38,9 +38,9 @@ if __name__ == '__main__':
     student_1 = Student(fake.name(), 'math')
     print(student_1.student_name, student_1.student_marks)
     student_1.student_add_subject('physic')
-    student_1.student_get_mark('math', 5)
-    student_1.student_get_mark('math', 2)
-    student_1.student_get_mark('physic', 3)
+    student_1.get_mark('math', 5)
+    student_1.get_mark('math', 2)
+    student_1.get_mark('physic', 3)
     print(student_1.student_name, student_1.student_marks)
 
     print()
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     student_2 = PaymentStudent(fake.name_male(), new_subject.subject_name, 100000)
     print(student_2.student_name, student_2.student_marks, student_2.year_pay)
     student_2.student_add_subject(new_subject.subject_name)
-    student_2.student_get_mark(new_subject.subject_name, 4)
+    student_2.get_mark(new_subject.subject_name, 4)
     student_2.add_pay(104990)
     print(student_2.student_name, student_2.student_marks, student_2.year_pay)
 
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     student_group = StudentGroup(teacher_1, stud_1, stud_2)
     print('++++++++++++++++++++++++++++++++++++++++++')
     for student in student_group:
-        print(f"Студент: {student}")
+        print(f"Студент: {student.student_name}")
     print('++++++++++++++++++++++++++++++++++++++++++')
 
     a = Ticket('math', '2*4')
@@ -68,13 +68,16 @@ if __name__ == '__main__':
     b3 = Ticket('math', "2+2")
     b4 = Ticket('math', "3+5")
     b5 = Ticket('math', "3+5")
-    ticket_group = TicketGroup(a, b, b2, b3, b4)
+    ticket_group = TicketCollection(a, b, b2, b3, b4)
     print('---------------------')
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
+    #print(ticket_group.get_random_ticket())
+    #print(ticket_group.get_random_ticket())
+
     print('---------------------')
     n = Exam(teacher_1.teacher_name, student_group, subject_math.subject_name, ticket_group)
     print('---------------------')
@@ -94,3 +97,6 @@ if __name__ == '__main__':
     stud_2.show_student_marks()
     print(n.student_and_marks)
     n.get_exam_result()
+
+    for i in student_group:
+        print(i.student_name)

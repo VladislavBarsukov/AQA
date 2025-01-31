@@ -1,12 +1,28 @@
+from enum import Enum
+
+class AvailableSubjects(Enum):
+    MATH = "math"
+    LANGUAGE = "language"
+    CHEMISTRY = "chemistry"
+    PHYSIC = "physic"
+    HISTORY = "history"
+    GEOMETRY = "geometry"
+
+    @classmethod
+    def get_all_subjects(cls):
+        return [subject.value for subject in cls]
+
+    @classmethod
+    def validate_subject(cls, subject):
+        if subject not in cls.get_all_subjects():
+            raise ValueError(f'Предмет недоступен. Доступные предметы: {", ".join(cls.get_all_subjects())}')
+        return subject
+
+
 class Subject:
-    available_subjects = ['math', 'language', 'chemistry',
-                          'physic', 'history', 'geometry']
 
     def __init__(self, subject, subject_hours, teacher_name):
-        if subject not in self.available_subjects:
-            raise ValueError('Предмет недоступен. Доступные предметы: math, '
-                             'language, chemistry, physic, history, geometry')
-        self.subject_name = subject
+        self.subject_name = AvailableSubjects.validate_subject(subject)
         self.subject_teachers = [teacher_name]
         self.subject_hours = subject_hours
 

@@ -1,9 +1,7 @@
-DEFAULT_RANK = 'Professor'
-DEFAULT_PAYMENT = 40000
-DEFAULT_WORK_HOURS = 160
-
-
 class Teacher:
+    DEFAULT_RANK = 'Professor'
+    DEFAULT_PAYMENT = 40000
+    DEFAULT_WORK_HOURS = 160
     def __init__(self, teacher_name, teacher_subject,
                  rank=DEFAULT_RANK, payment=DEFAULT_PAYMENT, work_hours=DEFAULT_WORK_HOURS):
         self.teacher_name = teacher_name

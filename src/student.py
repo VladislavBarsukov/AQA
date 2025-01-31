@@ -1,27 +1,22 @@
-MIN_MARK = 2
-MAX_MARK = 5
-
 class Student:
-
+    MIN_MARK = 2
+    MAX_MARK = 5
     def __init__(self, student_name, subject):
         self.student_name = student_name
         self.student_marks = {subject: []}
 
-    def student_get_mark(self, subject, mark):
-        if MIN_MARK <= mark <= MAX_MARK:
-            self.student_marks[subject].append(mark)
-        else:
+    def get_mark(self, subject, mark):
+        if mark<self.MIN_MARK or mark>self.MAX_MARK:
             raise ValueError('Невалидная оценка')
+        self.student_marks[subject].append(mark)
 
     def student_add_subject(self, subject):
         self.student_marks.update({subject: []})
 
     def show_student_name(self):
-        print(self.student_name)
         return self.student_name
 
     def show_student_marks(self):
-        print(self.student_marks)
         return self.student_marks
 
 

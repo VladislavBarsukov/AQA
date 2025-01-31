@@ -6,7 +6,7 @@ class NoTicketsException(Exception):
     pass
 
 
-class TicketGroup:
+class TicketCollection:
 
     def __init__(self, *tickets):
         self.ticket_group = list(tickets)
@@ -23,10 +23,9 @@ class TicketGroup:
     def add_to_group(self, ticket):
         self.ticket_group.append(ticket)
 
-    def get_random_ticket(self):  # No such ticket исключение
+    def get_random_ticket(self):
         if not self.ticket_group:
             raise NoTicketsException("В группе нет билетов.")
-
         random_index = random.randint(0, len(self.ticket_group) - 1)
         ticket = self.ticket_group[random_index]
         ticket_show = ticket.show_ticket()

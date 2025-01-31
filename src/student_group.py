@@ -13,10 +13,11 @@ class StudentGroup:
     def change_teacher(self, teacher):
         self.teacher = teacher
 
-    def student_from_group_get_mark(self, student_name, subject, mark):
+    def get_mark_to_student_from_group(self, student_name, subject, mark):
         for student in self.group:
             if student.student_name == student_name:
-                student.student_get_mark(subject, mark)
+                student.get_mark(subject, mark)
+                break
 
     def __iter__(self):
         self.index = 0
@@ -24,7 +25,8 @@ class StudentGroup:
 
     def __next__(self):
         if self.index < len(self.group):
-            student = self.group[self.index].student_name
+            student = self.group[self.index]
             self.index += 1
             return student
         raise StopIteration
+

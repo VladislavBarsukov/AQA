@@ -106,6 +106,6 @@ if __name__ == '__main__':
     #print(len(n))
 
     print(teacher_1.teacher_name in n)
-    print(subject_math.subject_name in teacher_1.teacher_subjects)
+    print(subject_math.subject_name in n)
     print(a in n)
     print(123 in n)

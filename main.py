@@ -75,7 +75,7 @@ if __name__ == '__main__':
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
-    # print(ticket_group.get_random_ticket())
+    #print(ticket_group.get_random_ticket())
     # print(ticket_group.get_random_ticket())
 
     print('---------------------')

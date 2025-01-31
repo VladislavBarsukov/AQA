@@ -1,7 +1,7 @@
 import random
 
 
-class NoTicketsException(Exception):
+class NoTicketsException(ValueError):
     """Исключение для случая, когда в группе нет билетов."""
     pass
 

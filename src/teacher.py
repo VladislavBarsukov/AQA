@@ -10,6 +10,9 @@ class Teacher:
         self.rank = rank
         self.work_hours = work_hours
 
+    def __len__(self):
+        return len(self.teacher_name)
+
     def add_teachers_subject(self, subject):
         self.teacher_subjects.append(subject)
 

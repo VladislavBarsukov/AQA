@@ -3,7 +3,8 @@ from datetime import datetime, timedelta
 
 
 class Exam:
-    LEN_TIME = 0.01
+    LEN_TIME = 1
+
     def __init__(self, teacher, student_group, subject, ticket_group):
         self.teacher = teacher
         self.student_group = student_group
@@ -21,6 +22,11 @@ class Exam:
     def is_exam_running(self):
         return datetime.now() < self.end_time and self.exam_running
 
+    def __contains__(self, item):
+        if item == self.teacher.teacher_name:
+            return item in self.student_group.teacher.teacher_name
+        elif item == self.subject.subject_name:
+            return item in self.teacher.teacher_subjects
 
     def end_exam(self):
         self.exam_running = False
@@ -42,7 +48,7 @@ class Exam:
                 yield ticket
 
     def get_exam_result(self):
-        self.student_and_marks.update({"Teacher:": self.teacher, "Subject:": self.subject})
-        with open('data.json', 'w',  encoding='utf-8') as f:
+        self.student_and_marks.update({"Teacher:": self.teacher.teacher_name, "Subject:": self.subject.subject_name})
+        with open('data.json', 'w', encoding='utf-8') as f:
             json.dump(self.student_and_marks, f, ensure_ascii=False, indent=2)
         return self.student_and_marks

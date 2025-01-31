@@ -75,14 +75,14 @@ if __name__ == '__main__':
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
-    #print(ticket_group.get_random_ticket())
-    #print(ticket_group.get_random_ticket())
+    # print(ticket_group.get_random_ticket())
+    # print(ticket_group.get_random_ticket())
 
     print('---------------------')
-    n = Exam(teacher_1.teacher_name, student_group, subject_math.subject_name, ticket_group)
+    n = Exam(teacher_1, student_group, subject_math, ticket_group)
     print('---------------------')
     n.start_exam()
-    for i in range(3):
+    for i in range(1):
         time.sleep(1)
         print(n.is_exam_running())
         print(datetime.datetime.now())
@@ -100,3 +100,12 @@ if __name__ == '__main__':
 
     for i in student_group:
         print(i.student_name)
+
+    print(len(teacher_1))
+    print(len(stud_1))
+    #print(len(n))
+
+    print(teacher_1.teacher_name in n)
+    print(subject_math.subject_name in teacher_1.teacher_subjects)
+    print(a in n)
+    print(123 in n)

@@ -19,6 +19,8 @@ class Student:
     def show_student_marks(self):
         return self.student_marks
 
+    def __len__(self):
+        return len(self.student_name)
 
 class PaymentStudent(Student):
     def __init__(self, student_name, subject, year_pay):

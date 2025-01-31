@@ -29,4 +29,3 @@ class StudentGroup:
             self.index += 1
             return student
         raise StopIteration
-

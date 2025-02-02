@@ -1,17 +1,22 @@
-class Teacher:
+from enum import StrEnum
+
+
+class AvailableRanks(StrEnum):
     DEFAULT_RANK = 'Professor'
+    DOCENT_RANK = 'Docent'
+
+
+class Teacher:
     DEFAULT_PAYMENT = 40000
     DEFAULT_WORK_HOURS = 160
+
     def __init__(self, teacher_name, teacher_subject,
-                 rank=DEFAULT_RANK, payment=DEFAULT_PAYMENT, work_hours=DEFAULT_WORK_HOURS):
+                 rank=AvailableRanks.DEFAULT_RANK, payment=DEFAULT_PAYMENT, work_hours=DEFAULT_WORK_HOURS):
         self.teacher_name = teacher_name
         self.teacher_subjects = [teacher_subject]
         self.payment = payment
-        self.rank = rank
+        self.rank = AvailableRanks(rank)
         self.work_hours = work_hours
-
-    def __len__(self):
-        return len(self.teacher_name)
 
     def add_teachers_subject(self, subject):
         self.teacher_subjects.append(subject)

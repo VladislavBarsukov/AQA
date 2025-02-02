@@ -1,6 +1,7 @@
-from enum import Enum
+from enum import StrEnum
 
-class AvailableSubjects(Enum):
+
+class AvailableSubjects(StrEnum):
     MATH = "math"
     LANGUAGE = "language"
     CHEMISTRY = "chemistry"
@@ -8,21 +9,11 @@ class AvailableSubjects(Enum):
     HISTORY = "history"
     GEOMETRY = "geometry"
 
-    @classmethod
-    def get_all_subjects(cls):
-        return [subject.value for subject in cls]
-
-    @classmethod
-    def validate_subject(cls, subject):
-        if subject not in cls.get_all_subjects():
-            raise ValueError(f'Предмет недоступен. Доступные предметы: {", ".join(cls.get_all_subjects())}')
-        return subject
-
 
 class Subject:
 
-    def __init__(self, subject, subject_hours, teacher_name):
-        self.subject_name = AvailableSubjects.validate_subject(subject)
+    def __init__(self, subject_name, subject_hours, teacher_name):
+        self.subject_name = AvailableSubjects(subject_name)
         self.subject_teachers = [teacher_name]
         self.subject_hours = subject_hours
 

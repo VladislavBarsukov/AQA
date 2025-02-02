@@ -13,10 +13,13 @@ class StudentGroup:
     def change_teacher(self, teacher):
         self.teacher = teacher
 
-    def get_mark_to_student_from_group(self, student_name, subject, mark):
+    def __len__(self):
+        return len(self.group)
+
+    def set_mark_to_student_from_group(self, student_name, subject, mark):
         for student in self.group:
             if student.student_name == student_name:
-                student.get_mark(subject, mark)
+                student.set_mark(subject, mark)
                 break
 
     def __iter__(self):

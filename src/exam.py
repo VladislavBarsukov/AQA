@@ -3,7 +3,8 @@ from datetime import datetime, timedelta
 
 
 class Exam:
-    LEN_TIME = 1
+    LEN_TIME = 120
+    EXAM_RESULT = 'data.json'
 
     def __init__(self, teacher, student_group, subject, ticket_group):
         self.teacher = teacher
@@ -27,15 +28,15 @@ class Exam:
             return item in self.student_group.teacher.teacher_name
         elif item == self.subject.subject_name:
             return item in self.teacher.teacher_subjects
+        return False
 
     def end_exam(self):
         self.exam_running = False
-        return 'Экзамен закончен'
 
     def teacher_set_marks(self, student_name, subject, mark):
         if not self.is_exam_running():
             return None
-        self.student_group.get_mark_to_student_from_group(student_name, subject, mark)
+        self.student_group.set_mark_to_student_from_group(student_name, subject, mark)
         if student_name not in self.student_and_marks:
             self.student_and_marks.update({student_name: [mark]})
         else:
@@ -49,6 +50,6 @@ class Exam:
 
     def get_exam_result(self):
         self.student_and_marks.update({"Teacher:": self.teacher.teacher_name, "Subject:": self.subject.subject_name})
-        with open('data.json', 'w', encoding='utf-8') as f:
+        with open(self.EXAM_RESULT, 'w', encoding='utf-8') as f:
             json.dump(self.student_and_marks, f, ensure_ascii=False, indent=2)
         return self.student_and_marks

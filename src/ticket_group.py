@@ -13,9 +13,13 @@ class TicketCollection:
         self.full_ticket_group = list(tickets)
 
     def show_group(self):
+        return self.ticket_group
+
+    def __str__(self):
+        result = "Список билетов:\n"
         for i in range(len(self.ticket_group)):
-            print(self.ticket_group[i].subject)
-            print(self.ticket_group[i].questions)
+            result += f"Предмет: {self.ticket_group[i].subject}\nВопросы: {self.ticket_group[i].questions}\n"
+        return result
 
     def remove_from_group(self, ticket):
         self.ticket_group.remove(ticket)
@@ -26,8 +30,7 @@ class TicketCollection:
     def get_random_ticket(self):
         if not self.ticket_group:
             raise NoTicketsException("В группе нет билетов.")
-        random_index = random.randint(0, len(self.ticket_group) - 1)
-        ticket = self.ticket_group[random_index]
+        ticket = random.choice(self.ticket_group)
         ticket_show = ticket.show_ticket()
         self.ticket_group.remove(ticket)
         return ticket_show

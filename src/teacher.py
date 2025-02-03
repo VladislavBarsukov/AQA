@@ -7,7 +7,7 @@ class AvailableRanks(StrEnum):
 
 
 class Teacher:
-    DEFAULT_PAYMENT = 40000
+    DEFAULT_PAYMENT = 9999999999999999999999999999999
     DEFAULT_WORK_HOURS = 160
 
     def __init__(self, teacher_name, teacher_subject,

@@ -12,8 +12,11 @@ class TicketCollection:
         self.ticket_group = list(tickets)
         self.full_ticket_group = list(tickets)
 
-    def show_group(self):
+    def get_group(self):
         return self.ticket_group
+
+    def __len__(self):
+        return len(self.ticket_group)
 
     def __str__(self):
         result = "Список билетов:\n"

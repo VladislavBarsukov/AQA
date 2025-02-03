@@ -74,7 +74,7 @@ if __name__ == '__main__':
     ticket_group = TicketCollection(a, b, b2, b3, b4)
     print(ticket_group)
     print('---------------------')
-    print(ticket_group.show_group())
+    print(ticket_group.get_group())
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
     print(ticket_group.get_random_ticket())
@@ -117,3 +117,4 @@ if __name__ == '__main__':
     print(a in n)
     print(123 in n)
     print(len(student_group))
+    print(len(ticket_group))
